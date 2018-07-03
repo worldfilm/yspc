@@ -1,28 +1,16 @@
 <template>
-<div class="register-pop hide">
+<div class="forgetpassword-pop hide">
   <div class="register-pop-container">
+
     <div class="register-pop-content">
-      <div class="login-title">注册
+      <div class="login-title">忘记密码了吗?
         <div class="loginclose close" @click="closed"></div>
       </div>
-      <form>
+      <form role="form" id="signUpForm" novalidate="novalidate">
         <div class="form-group">
-          <input type="text" class="form-control"  placeholder="登录名为4-12位字母或数字" v-model='username'>
+          <input type="text" class="form-control" id="register_username" name="username" placeholder="登录名为4-12位字母或数字" v-model='username'>
           <p class="warn" v-text='texusername'></p>
         </div>
-        <div class="form-group">
-          <input type="password" class="form-control" placeholder="密码为6-12位字母或数字" v-model='password'>
-          <p class="warn" v-text='texpassword'></p>
-        </div>
-        <div class="form-group">
-          <input type="password" class="form-control" placeholder="请再次输入密码" v-model='confirmPassword'>
-          <p class="warn" v-text='tex'></p>
-        </div>
-        <p class="sure">
-          <label for="over18" style="font-weight:normal">
-                <input @click='checkd' v-model='chose'  class="form-check-input" type="checkbox" data-content="请接受此协议">我已阅读并同意本网站的策略，隐私声明、<a >条款及协议</a>
-          </label>
-        </p>
         <div class="form-group">
           <button type="button" class="btn signUpBtn" @click='btnRegister' :disable='disable'>提&nbsp;&nbsp;交</button>
         </div>
@@ -116,7 +104,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.register-pop {
+.forgetpassword-pop {
     width: 100%;
     height: 100%;
     position: fixed;

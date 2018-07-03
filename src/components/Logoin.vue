@@ -1,188 +1,136 @@
 <template>
-<div class="login  hide">
-  <div class="login-container">
-    <div class="login-pop-title">登录
-      <div class="login-close close" @click="closed">
-      </div>
-    </div>
-    <div class="login-pop-content">
-      <form role="form" id="signInForm" novalidate="novalidate">
-        <div class="form-group">
-          <label for="username">用户名</label>
-          <input type="text" class="form-control" id="username" name="username" placeholder="请输入用户名" v-model='username'>
-        </div>
-        <div class="form-group">
-          <label for="password">密码</label>
-          <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码" v-model='password'>
-        </div>
-        <div class="form-group">
-          <label for="verifycode">验证码</label>
-          <input type="text" class="form-control"  placeholder="右侧图片字母和数字" maxlength="4" style="width:200px;" v-model='verifycode'>
-          <a class="input-group-addon vimg" href="Javascript:;" @click='VerifyCode'>
-            <img class="verify-img" src="../../static/VerifyCode.png" alt="点击刷新" width="100" height="26">
-          </a>
-        </div>
-        <p class="warn" v-text='tex'></p>
-        <p class="butn"><button type="button" class="btn signInBtn"  @click='btnLogin'>登&nbsp;&nbsp;录</button></p>
-      </form>
-    </div>
-  </div>
+<div class="formlogoin">
+  <ul>
+    <li>
+      <p @click="register"><span>创建账号</span></p>
+      <p><input type="text" name="" value="" placeholder="用户名"v-model='username'></p>
+      <p class="warn-logo" v-text='logousername'></p>
+    </li>
+    <li>
+      <p @click="forgetpassword"><span>忘记密码了吗？</span></p>
+      <p><input type="password" name="" value="" placeholder="密码" v-model='password'></p>
+      <p class="warn-logo" v-text='logopassword'></p>
+    </li>
+    <li class="logoinbtn">
+      <p @click="btnLogin">登录</p>
+    </li>
+  </ul>
 </div>
 </template>
-
 <script>
-	import Hub from '@/components/Hub';
-  import {
-    network
-  } from '@/config/config';
+import Hub from '@/components/Hub';
+import {
+  network
+} from '@/config/config';
 export default {
-  data(){
-  	return {
-      username:null,
-      password:null,
-      verifycode:null,
-      chose:true,
-      tex: null,
+  data() {
+    return {
+      username: null,
+      password: null,
+      chose: true,
+      logousername: null,
+      logopassword: null,
+      ChildLogoin:true,
+      ChildOline:false,
       data: {},
-  	}
+    }
   },
   methods: {
-     checkd(){
-        this.chose?(this.chose=false):(this.chose=true);
-     },
-      closed(){
-      	Hub.$emit('closed',false);
-      },
-      VerifyCode(){
-         console.log('验证码')
-      },
-      btnLogin() {
-        let verifycodeReg = /^[a-zA-Z0-9]{4,12}$/;
-        let userReg = /^[a-zA-Z0-9]{4,12}$/;
-        let pwdReg = /^[a-zA-Z0-9]{6,12}$/;
+    checkd() {
+      this.chose ? (this.chose = false) : (this.chose = true);
+    },
+    register() {
+      Hub.$emit('register', 'true');
+      this.ShowRegister = true
+    },
+    forgetpassword() {
+      Hub.$emit('forgetpassword', 'true');
+    },
+    closed() {
+      Hub.$emit('closed', false);
+    },
+    VerifyCode() {
+      console.log('验证码')
+    },
+    btnLogin() {
+      let userReg = /^[a-zA-Z0-9]{4,12}$/;
+      let pwdReg = /^[a-zA-Z0-9]{6,12}$/;
+      if (this.username == null || this.username == '') {
+        this.logousername = "用户名不得为空!";
+        this.logopassword=null
+      } else if (this.password == null || this.password == '') {
+        this.logousername =null
+        this.logopassword = "密码不得为空!";
+      }else{
         if (!userReg.test(this.username)) {
-          this.tex = "请检查您输入的用户名~";
-        }else if (!pwdReg.test(this.password)) {
-          this.tex = "请检查您输入的密码~";
-        } else if (!verifycodeReg.test(this.verifycode)) {
-          this.tex = "请检查您输入的验证码~";
-        } else {
-          if(this.chose){
-            this.tex = "登录成功~";
+          this.logopassword=null
+          this.logousername = "请检查您输入的用户名~";
+        } else if (!pwdReg.test(this.password)) {
+          this.logousername=null;
+          this.logopassword = "请检查您输入的密码~";
+        }else {
+          this.logopassword='登录成功'
+          Hub.$emit('loginsuccess', this.ChildLogoin);
+          Hub.$emit('login', this.ChildOline);
             network('https://www.apiopen.top/satinApi?type=1&page=1', {
               username: this.username,
               password: this.password,
               verifycode: this.verifycode
             })
-          }else {
-            this.tex = "不勾选表示不同意网站协议，不能注册！";
-          }
         }
-        if (!this.username) {
-          this.tex = "用户名不得为空!";
-        }  else if (!this.password) {
-          this.tex = "密码不得为空!";
-        }  else if (!this.verifycode) {
-          this.tex = "验证码不得为空!";
-        }
-      },
+      }
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-	.login{
-		width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 2000001;
-    left: 0;
-    background-color: rgba(0,0,0,.6);
-		.login-container{
-			 width: 460px;
-        margin: 10% auto;
-			.login-pop-title {
-            position: relative;
-            height: 38px;
-            background-color: #f07;
-            color: #fff;
-            line-height: 38px;
-            font-size: 16px;
-            padding-left: 10px;
-            .login-close {
-                background-image: url("../../static/v2-login-pop-close.png");
-                width: 18px;
-                height: 18px;
-                position: absolute;
-                top: 10px;
-                right: 10px;
-                cursor: pointer;
+.formlogoin {
+    ul {
+        li {
+            display: inline-block;
+            float: left;
+            text-align: left;
+            width: 150px;
+            line-height: 85px;
+            height: 85px;
+            p {
+                height: 50%;
+                width: 100%;
+                span {
+                    position: relative;
+                    top: -15px;
+                }
+                input {
+                    position: relative;
+                    width: 100px;
+                    top: -20px;
+                    border: none;
+                    border-bottom: 1px solid #ddd;
+                }
+            }
+            .warn-logo {
+                color: #ff0000;
+                height: 10px;
+                position: relative;
+                top: -47px;
+                font-size: 12px;
             }
         }
-			.login-pop-content{
-				background-color: #fff;
-        padding: 20px 25px;
-				form{
-					.form-group {
-                margin-left: -15px;
-                margin-right: -15px;
-                label {
-                    font-size: 16px;
-                    color: #333;
-                    font-weight: 400;
-                    padding: 7px 0 0;
-                    width: 70px;
-                }
-                .form-control {
-                    height: 42px;
-                    line-height: 42px;
-                    font-size: 16px;
-                    color: #666!important;
-                    border: 1px solid #ddd;
-                    border-radius: 2px;
-                    width: 270px;
-                    padding: 0 12px;
-                    margin-bottom: 15px;
-                }
-                .input-group-addon {
-                    img {}
-                }
-
-            }
-					.sure {
-                label {
-                    display: inline-block;
-                    max-width: 100%;
-                    margin-bottom: 5px;
-                    .form-check-input {
-                        margin-right: 8px;
-
-                        font-size: 12px;
-                        color: #333;
-                        -webkit-font-smoothing: antialiased;
-                    }
-                }
-            }
-					.warn {
-                color: #f07;
-                padding: 7px;
-            }
-            .butn {
-                width: 410px;
+        .logoinbtn {
+            width: 50px;
+            p {
+                background: #f3cc53;
+                top: 35px;
+                width: 90px;
+                left: -40px;
+                height: 40px;
                 text-align: center;
-                button {
-                    height: 38px;
-                    width: 270px;
-                    line-height: 38px;
-                    background-color: #f07;
-                    font-size: 16px;
-                    border-radius: 2px;
-                    color: #fff;
-                }
+                line-height: 40px;
+                position: relative;
             }
-				}
-			}
-		}
-	}
+        }
+    }
+
+}
 </style>

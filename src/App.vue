@@ -1,8 +1,8 @@
 <template>
 <div id="app">
   <Navheader/>
-  <Logoin v-show='Showlogin' />
   <Register v-show='ShowRegister' />
+  <forgetpassword v-show='ShowForgetPassword'/>
   <router-view></router-view>
   <Navfooter/>
 </div>
@@ -10,21 +10,21 @@
 <script>
 import Navfooter from '@/components/Navfooter.vue';
 import Navheader from '@/components/Navheader.vue';
-import Logoin from '@/components/Logoin';
 import Register from '@/components/Register';
+import forgetpassword from '@/components/forgetpassword';
 import Hub from '@/components/Hub';
 export default {
   name: 'App',
   components: {
     Navfooter,
     Navheader,
-    Logoin,
     Register,
+    forgetpassword,
   },
   data() {
     return {
-      Showlogin: false,
       ShowRegister: false,
+      ShowForgetPassword:false,
     }
   },
   methods: {
@@ -35,13 +35,16 @@ export default {
     Hub.$on('closed', (data) => {
       this.Showlogin = data
       this.ShowRegister = data
+      this.ShowForgetPassword =data
     });
-    Hub.$on('change1', (data) => {
+    Hub.$on('login', (data) => {
       this.Showlogin = data
-
     });
-    Hub.$on('change2', (data) => {
+    Hub.$on('register', (data) => {
       this.ShowRegister = data
+    });
+    Hub.$on('forgetpassword', (data) => {
+      this.ShowForgetPassword = data
     });
   }
 }
