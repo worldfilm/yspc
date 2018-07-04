@@ -115,9 +115,11 @@ body {
   width: 18px;
   height: 18px;
   position: relative;
-  /* top: -56px; */
   left: 70px;
   cursor: pointer;
   float: right;
+}
+.ativetitle{
+  color:#fff000;
 }
 </style>
