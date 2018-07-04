@@ -3,12 +3,13 @@
   <div class="register-pop-container">
 
     <div class="register-pop-content">
-      <div class="login-title">忘记密码了吗?
+      <div class="login-title">
+        <span>找回密码</span>
         <div class="loginclose close" @click="closed"></div>
       </div>
       <form role="form" id="signUpForm" novalidate="novalidate">
         <div class="form-group">
-          <input type="text" class="form-control" id="register_username" name="username" placeholder="登录名为4-12位字母或数字" v-model='username'>
+          <input type="text" class="form-control" placeholder="登录名为4-12位字母或数字" v-model='username'>
           <p class="warn" v-text='texusername'></p>
         </div>
         <div class="form-group">
@@ -57,34 +58,34 @@ export default {
       let verifycodeReg = /^[a-zA-Z0-9]{4,12}$/;
       let userReg = /^[a-zA-Z0-9]{4,12}$/;
       let pwdReg = /^[a-zA-Z0-9]{6,12}$/;
-      if (this.username==null||this.username=='') {
+      if (this.username == null || this.username == '') {
         this.texusername = "用户名不得为空!";
-        this.texpassword=null;
-        this.tex=null
-      } else  if (this.password==null||this.password=='') {
-        this.texusername=null;
-        this.tex=null
+        this.texpassword = null;
+        this.tex = null
+      } else if (this.password == null || this.password == '') {
+        this.texusername = null;
+        this.tex = null
         this.texpassword = "密码不得为空!";
-      } else if(this.confirmPassword==null||this.confirmPassword=='') {
-        this.texusername=null;
-        this.texpassword=null;
+      } else if (this.confirmPassword == null || this.confirmPassword == '') {
+        this.texusername = null;
+        this.texpassword = null;
         this.tex = "请再次输入密码!";
-      }else{
-        this.tex=null
+      } else {
+        this.tex = null
         if (!userReg.test(this.username)) {
           this.texusername = "请检查您输入的用户名~";
-          this.texpassword=null;
-          this.tex=null
+          this.texpassword = null;
+          this.tex = null
         } else if (!pwdReg.test(this.password)) {
           this.texpassword = "请检查您输入的密码~";
-          this.texusername=null;
-          this.tex=null
+          this.texusername = null;
+          this.tex = null
         } else if (this.password != this.confirmPassword) {
           this.tex = "两次输入的密码不一致~";
-          this.texusername=null;
-          this.texpassword=null;
+          this.texusername = null;
+          this.texpassword = null;
         } else {
-          if(this.chose){
+          if (this.chose) {
             this.tex = "注册成功~";
             network('Register', {
               username: this.username,
@@ -92,7 +93,7 @@ export default {
               password: this.password,
               verifycode: this.verifycode
             })
-          }else {
+          } else {
             this.tex = "不勾选表示不同意网站协议，不能注册！";
           }
 
@@ -123,15 +124,9 @@ export default {
             line-height: 38px;
             font-size: 30px;
             padding-left: 10px;
-            top: 54px;
-            .loginclose {
-                background-image: url("../../static/v2-login-pop-close.png");
-                width: 18px;
-                height: 18px;
-                position: absolute;
-                top: -56px;
-                right: -5px;
-                cursor: pointer;
+            span {
+                position: relative;
+                top: 44px;
             }
         }
     }
@@ -155,12 +150,28 @@ export default {
                     height: 42px;
                     line-height: 42px;
                     font-size: 16px;
-                    color: #666!important;
-                    border: 1px solid #ddd;
-                    border-radius: 2px;
+                    color: #fff;
+                    border: none;
                     width: 270px;
                     padding: 0 12px;
                     margin-bottom: 15px;
+                    background: none;
+                    border-bottom: 1px solid #ada5a5;
+                }
+                input::-webkit-input-placeholder {
+                    color: #cababa;
+                }
+                input::-moz-placeholder {
+                    /* Mozilla Firefox 19+ */
+                    color: #cababa;
+                }
+                input:-moz-placeholder {
+                    /* Mozilla Firefox 4 to 18 */
+                    color: #cababa;
+                }
+                input:-ms-input-placeholder {
+                    /* Internet Explorer 10-11 */
+                    color: #cababa;
                 }
                 .input-group-addon {
                     img {}

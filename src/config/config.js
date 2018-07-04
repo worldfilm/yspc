@@ -5,7 +5,7 @@ const network=function(url,data,fun){
     fetch(url,data,method).then(function(response){
      return response.json();
     }).then(function(data){
-     console.log('1')
+     console.log('POST成功')
     }).catch(function(e){
      console.log("error")
     })
@@ -13,7 +13,7 @@ const network=function(url,data,fun){
     fetch(url).then(function(response){
      return response.json();
     }).then(function(data){
-     console.log('2')
+     console.log('GET成功')
     }).catch(function(e){
      console.log("error")
     })

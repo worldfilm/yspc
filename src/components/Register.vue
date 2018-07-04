@@ -2,7 +2,8 @@
 <div class="register-pop hide">
   <div class="register-pop-container">
     <div class="register-pop-content">
-      <div class="login-title">注册
+      <div class="login-title">
+        <span>注册</span>
         <div class="loginclose close" @click="closed"></div>
       </div>
       <form>
@@ -135,15 +136,9 @@ export default {
             line-height: 38px;
             font-size: 30px;
             padding-left: 10px;
-            top: 54px;
-            .loginclose {
-                background-image: url("../../static/v2-login-pop-close.png");
-                width: 18px;
-                height: 18px;
-                position: absolute;
-                top: -56px;
-                right: -5px;
-                cursor: pointer;
+            span {
+                position: relative;
+                top: 44px;
             }
         }
     }
@@ -164,15 +159,28 @@ export default {
                     width: 70px;
                 }
                 .form-control {
-                    height: 42px;
-                    line-height: 42px;
-                    font-size: 16px;
-                    color: #666!important;
-                    border: 1px solid #ddd;
-                    border-radius: 2px;
-                    width: 270px;
-                    padding: 0 12px;
-                    margin-bottom: 15px;
+                  height: 42px;
+                  line-height: 42px;
+                  font-size: 16px;
+                  color: #fff;
+                  border: none;
+                  width: 270px;
+                  padding: 0 12px;
+                  margin-bottom: 15px;
+                  background: none;
+                  border-bottom: 1px solid #ada5a5;
+                }
+                input::-webkit-input-placeholder{
+                    color:#cababa;
+                }
+                input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+                    color:#cababa;
+                }
+                input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+                    color:#cababa;
+                }
+                input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+                    color:#cababa;
                 }
                 .input-group-addon {
                     img {}

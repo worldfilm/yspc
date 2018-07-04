@@ -2,7 +2,8 @@
 <div id="app">
   <Navheader/>
   <Register v-show='ShowRegister' />
-  <forgetpassword v-show='ShowForgetPassword'/>
+  <forgetpassword v-show='ShowForgetPassword' />
+  <User v-show='ShowUser' />
   <router-view></router-view>
   <Navfooter/>
 </div>
@@ -12,6 +13,7 @@ import Navfooter from '@/components/Navfooter.vue';
 import Navheader from '@/components/Navheader.vue';
 import Register from '@/components/Register';
 import forgetpassword from '@/components/forgetpassword';
+import User from '@/components/User';
 import Hub from '@/components/Hub';
 export default {
   name: 'App',
@@ -20,11 +22,13 @@ export default {
     Navheader,
     Register,
     forgetpassword,
+    User,
   },
   data() {
     return {
       ShowRegister: false,
-      ShowForgetPassword:false,
+      ShowForgetPassword: false,
+      ShowUser: false,
     }
   },
   methods: {
@@ -35,10 +39,8 @@ export default {
     Hub.$on('closed', (data) => {
       this.Showlogin = data
       this.ShowRegister = data
-      this.ShowForgetPassword =data
-    });
-    Hub.$on('login', (data) => {
-      this.Showlogin = data
+      this.ShowForgetPassword = data
+      this.ShowUser = data
     });
     Hub.$on('register', (data) => {
       this.ShowRegister = data
@@ -46,7 +48,11 @@ export default {
     Hub.$on('forgetpassword', (data) => {
       this.ShowForgetPassword = data
     });
-  }
+    Hub.$on('user', (data) => {
+      this.ShowUser = data
+    });
+  },
+
 }
 </script>
 <style>
@@ -102,5 +108,16 @@ body {
 
 .pull-right {
   float: right
+}
+
+.loginclose {
+  background-image: url("../static/v2-login-pop-close.png");
+  width: 18px;
+  height: 18px;
+  position: relative;
+  /* top: -56px; */
+  left: 70px;
+  cursor: pointer;
+  float: right;
 }
 </style>
