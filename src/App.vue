@@ -63,6 +63,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   width: 100%;
+  background: radial-gradient(#636363, #4e4e4e, #1b1a1b);
 }
 
 * {

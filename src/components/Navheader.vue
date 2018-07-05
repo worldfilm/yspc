@@ -13,8 +13,8 @@
       </ul>
     </div>
     <div class="header-middle">
-      <a class="logo">
-       <img src='../../static/logo.png' >
+      <a class="logo" href="Home">
+       <img src='../../static/ys_logocbg_mob0608.png' >
       </a>
     </div>
     <div class="header-right">
@@ -163,35 +163,45 @@ export default {
 </script>
 <style lang="scss" scoped>
 .header {
-    background: #fff;
     overflow: hidden;
     .container {
-        width: 1200px;
+        width: 1024px;
         margin: 0 auto;
         .header-left {
             line-height: 85px;
             float: left;
-            width: 33.3%;
+            width: 327px;
             ul {
                 li {
                     display: inline-block;
                     padding: 0 5px;
-                    a {}
+                    float: left;
+                    a {
+                        position: relative;
+                        top: 13px;
+                        color: #949494;
+                    }
                 }
             }
         }
         .header-middle {
             float: left;
-            width: 33.3%;
+            width: 28.3%;
+            height: 85px;
             a {
+                display: block;
+                height: 100%;
                 img {
-                    height: 85px;
+                    height: 50px;
+                    padding: 32px;
+                    margin-left: 43px;
                 }
             }
         }
         .header-right {
-            float: left;
-            width: 33.3%;
+            float: right;
+            height: 90px;
+            width: 400px;
             .formlogoin {
                 .warn-logo {
                     position: absolute;
@@ -216,11 +226,16 @@ export default {
                             height: 20px;
                             line-height: 20px;
                             padding-bottom: 14px;
-                            span {}
+                            span {
+                                color: #9c7522;
+                            }
                             input {
-                                width: 100px;
+                                color: #fff;
+                                width: 120px;
                                 border: none;
-                                border-bottom: 1px solid #ddd;
+                                border-bottom: 1px solid #595959;
+                                background: none;
+                                padding-bottom: 5px;
                             }
                         }
                         .username {
@@ -239,7 +254,7 @@ export default {
                     .logoinbtn {
                         width: 50px;
                         p {
-                            background: #f3cc53;
+                            background: linear-gradient(#ffeb6a, #ca8811);
                             width: 90px;
                             height: 40px;
                             text-align: center;
