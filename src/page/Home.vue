@@ -143,7 +143,7 @@ export default {
 <style lang="scss" >
 .home {
     overflow: hidden;
-    width: 1200px;
+    width: 1024px;
     margin: 0 auto;
     ul {
         font-size: 0;
@@ -153,8 +153,7 @@ export default {
             padding: 5px;
             color: #949494;
             img {
-                width: 250px;
-                height: 174px;
+                height: 170px;
             }
         }
     }

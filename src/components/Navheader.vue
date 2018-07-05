@@ -1,7 +1,6 @@
 <!--头部-->
 <template>
 <div class='header'>
-  <div class="container">
     <div class="header-left">
       <ul class="navbar">
         <li @click='Slotmachine'><a>老虎机</a></li>
@@ -51,7 +50,6 @@
       </div>
 
     </div>
-  </div>
 </div>
 </template>
 <script>
@@ -163,10 +161,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 .header {
-    overflow: hidden;
-    .container {
-        width: 1024px;
-        margin: 0 auto;
+    overflow: hidden;width: 1024px;
+    margin: 0 auto;
         .header-left {
             line-height: 85px;
             float: left;
@@ -267,6 +263,5 @@ export default {
 
             }
         }
-    }
 }
 </style>
