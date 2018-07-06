@@ -112,9 +112,9 @@ body {
 }
 
 .loginclose {
-  background-image: url("../static/v2-login-pop-close.png");
-  width: 18px;
-  height: 18px;
+  background: url("../static/close.png") no-repeat 2px 1px;
+  width: 37px;
+  height: 37px;
   position: relative;
   left: 70px;
   cursor: pointer;

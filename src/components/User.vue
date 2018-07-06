@@ -25,10 +25,10 @@
             <el-tab-pane label="推广赚钱">
               <Operation/>
             </el-tab-pane>
+            <el-tab-pane label="VIP商场">
+              <Operation/>
+            </el-tab-pane>
           </el-tabs>
-          <!--<ul>
-            <li :class="{'ativetitle':index==toggerClass}" v-for='(item,index) in list' @click='toggle(item.fun,index)'>{{item.name}}</li>
-          </ul>-->
         </div>
       </div>
     </div>
@@ -65,49 +65,49 @@ export default {
       toggerClass: 0,
       Showleft: '',
       index: 0,
-      list: [{
-          name: '个人中心',
-          fun: function() {
-            // console.log('personal')
-            return 'personal'
-          },
-        },
-        {
-          name: '历史',
-          fun: function() {
-            // console.log('history')
-            return 'history'
-          },
-        },
-        {
-          name: '优惠大厅',
-          fun: function() {
-            // console.log('Promotion')
-            return 'Promotion'
-          },
-        },
-        {
-          name: 'VIP',
-          fun: function() {
-            // console.log('VIP')
-            return 'VIP'
-          },
-        },
-        {
-          name: '游戏转账',
-          fun: function() {
-            // console.log('Transfer')
-            return 'Transfer'
-          },
-        },
-        {
-          name: '推广赚钱',
-          fun: function() {
-            // console.log('Operation')
-            return 'Operation'
-          },
-        },
-      ]
+      // list: [{
+      //     name: '个人中心',
+      //     fun: function() {
+      //       // console.log('personal')
+      //       return 'personal'
+      //     },
+      //   },
+      //   {
+      //     name: '历史',
+      //     fun: function() {
+      //       // console.log('history')
+      //       return 'history'
+      //     },
+      //   },
+      //   {
+      //     name: '优惠大厅',
+      //     fun: function() {
+      //       // console.log('Promotion')
+      //       return 'Promotion'
+      //     },
+      //   },
+      //   {
+      //     name: 'VIP',
+      //     fun: function() {
+      //       // console.log('VIP')
+      //       return 'VIP'
+      //     },
+      //   },
+      //   {
+      //     name: '游戏转账',
+      //     fun: function() {
+      //       // console.log('Transfer')
+      //       return 'Transfer'
+      //     },
+      //   },
+      //   {
+      //     name: '推广赚钱',
+      //     fun: function() {
+      //       // console.log('Operation')
+      //       return 'Operation'
+      //     },
+      //   },
+      // ]
     }
   },
   methods: {
@@ -116,9 +116,9 @@ export default {
     },
     toggle(item, index) {
       item(item)
-      console.log()
-      let arr = [this.toggerClass, this.ShowPersonal, this.ShowHistory, this.ShowPromotion, this.ShowVip, this.ShowTransfer, this.ShowOperation]
-      this.toggerClass = index
+      // console.log()
+      // let arr = [this.toggerClass, this.ShowPersonal, this.ShowHistory, this.ShowPromotion, this.ShowVip, this.ShowTransfer, this.ShowOperation]
+      // this.toggerClass = index
       // this.ShowPersonal=index
       // this.ShowHistory=index
       // this.ShowPromotion=index
@@ -144,17 +144,17 @@ export default {
 <style lang="scss" >
 .user {
     width: 100%;
-    height: 100%;
-    position: fixed;
+    height: auto;
+    position: absolute;
     top: 0;
-    z-index: 2000001;
+    z-index:10;
     left: 0;
     background-color: rgba(0,0,0,.6);
     .user-container {
         width: 890px;
         margin: 10% auto;
         .user-content {
-            background: linear-gradient(to top, #4e4c4c, #565555, #615948);
+            background: linear-gradient(to top, #040404, #1f1a1a, #4c463a);
             .container-top {
                 height: 60px;
                 width: 100%;
@@ -193,7 +193,7 @@ export default {
                                     .is-active {
                                         color: #fff000;
                                         background: none;
-                                        border-right-color: none;
+                                        border-right: none;
                                     }
                                 }
                             }

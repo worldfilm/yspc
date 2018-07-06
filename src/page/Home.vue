@@ -13,7 +13,7 @@
     <li>BBIN</li>
     <input type="text" name="" value="" placeholder="过滤">
   </ul>
-  <Carousel/>
+  <Swiper2/>
   <marquee/>
   <ul>
     <li v-for="item in list">
@@ -25,7 +25,7 @@
 
 <script>
 import Hub from '@/components/Hub';
-import Carousel from '@/components/Carousel';
+import Swiper2 from '@/components/Swiper2';
 import GameList from '@/components/GameList';
 import marquee from '@/components/marquee';
 export default {
@@ -133,7 +133,7 @@ export default {
     }
   },
   components: {
-    Carousel,
+    Swiper2,
     GameList,
     marquee
   }

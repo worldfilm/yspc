@@ -1,11 +1,19 @@
 <template>
-<div class="Vip-conter">
-  <div class="left" @click="left">
-    <p>vip</p>
-  </div>
-  <div class="right">
-
-  </div>
+<div class="vip-content">
+    <div class="top-content">
+      <el-table  :data="tableData"  border  style="width: 100%">
+        <el-table-column prop="date" label="日期"></el-table-column>
+        <el-table-column prop="name" label="姓名"></el-table-column>
+        <el-table-column prop="address" label="地址"></el-table-column>
+      </el-table>
+    </div>
+    <div class="main-content">
+      <el-table  :data="tableData"  border  style="width: 100%">
+        <el-table-column prop="date" label="日期"></el-table-column>
+        <el-table-column prop="name" label="姓名"></el-table-column>
+        <el-table-column prop="address" label="地址"></el-table-column>
+      </el-table>
+    </div>
 </div>
 </template>
 <script>
@@ -26,19 +34,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.Vip-conter {
-    padding-bottom: 20px;
-    .left {
-        height: 530px;
-        width: 530px;
-        border: 1px solid #9a6810;
-        display: inline-block;
-    }
-    .right {
-        height: 380px;
-        width: 280px;
-        border: 1px solid #9a6810;
-        float: right;
-    }
+.vip-content {
+  .top-content{
+     height:325px;    background: #4a494a;
+  }
+  .main-content{
+
+  }
 }
 </style>

@@ -55,7 +55,6 @@ export default {
   },
   mounted() {
     var galleryTop = new Swiper('.gallery-top', {
-      spaceBetween: 10,
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
@@ -65,16 +64,17 @@ export default {
         stopOnLastSlide: false,
         disableOnInteraction: true,
       },
-      loop : true,
+      loop: true,
     });
     var galleryThumbs = new Swiper('.gallery-thumbs', {
-      spaceBetween: 10,
+      loop: true,
       centeredSlides: true,
       slidesPerView: 'auto',
       touchRatio: 0.2,
       slideToClickedSlide: true,
+      autoplay: false,
     });
-    galleryTop.controller.control = galleryThumbs;
+    // galleryTop.controller.control = galleryThumbs;
     galleryThumbs.controller.control = galleryTop;
 
   },
@@ -82,31 +82,34 @@ export default {
 </script>
 
 <style lang="scss" >
-.swiper-container {
-    width: 100%;
-    height: 300px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.swiper-slide {
-    background-size: cover;
-    background-position: center;
-}
+// .swiper-container {
+//     width: 100%;
+//     height: 300px;
+//     margin-left: auto;
+//     margin-right: auto;
+//
+// }
+
 .gallery-top {
+    font-size: 0;
     height: 80%;
     width: 100%;
+    .swiper-slide {
+        background-size: cover;
+        background-position: center;
+    }
 }
 .gallery-thumbs {
+    font-size: 0;
     height: 20%;
     box-sizing: border-box;
-    padding: 10px 0;
-}
-.gallery-thumbs .swiper-slide {
-    width: 25%;
-    height: 100%;
-    opacity: 0.4;
-}
-.gallery-thumbs .swiper-slide-active {
-    opacity: 1;
+    .swiper-slide {
+        width: 25%;
+        height: 100%;
+        opacity: 0.4;
+    }
+    .swiper-slide-active {
+        opacity: 1;
+    }
 }
 </style>
