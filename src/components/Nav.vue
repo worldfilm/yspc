@@ -15,7 +15,6 @@ export default {
   methods: {
      togglelink(e){
        e='/'+e
-       console.log(e)
        this.$router.push({
          path:e
        })

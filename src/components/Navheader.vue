@@ -4,7 +4,7 @@
   <div class="header-left">
     <ul class="navbar">
       <li @click='Slotmachine'><a>老虎机</a></li>
-      <li @click='PT'><a>体育</a></li>
+      <li @click='Sport'><a>体育</a></li>
       <li @click='Dealer'><a>真人荷官</a></li>
       <li @click='Lottery'><a>彩票</a></li>
       <li @click='Promotions'><a>优惠活动</a></li>
@@ -128,9 +128,9 @@ export default {
       })
     },
     // 体育
-    PT() {
+    Sport() {
       this.$router.push({
-        path: '/PT'
+        path: '/Sport'
       })
     },
     // 真人荷官
