@@ -1,18 +1,7 @@
 <template>
 <div class="home">
 
-  <ul class="nav">
-    <li>热门游戏</li>
-    <li>PT</li>
-    <li>MG</li>
-    <li>PNG</li>
-    <li>SW</li>
-    <li>BS</li>
-    <li>QT</li>
-    <li>MW</li>
-    <li>BBIN</li>
-    <input type="text" name="" value="" placeholder="过滤">
-  </ul>
+<Nav :navlist='navlist'/>
   <Swiper2/>
   <marquee/>
   <ul>
@@ -28,9 +17,29 @@ import Hub from '@/components/Hub';
 import Swiper2 from '@/components/Swiper2';
 import GameList from '@/components/GameList';
 import marquee from '@/components/marquee';
+import Nav from '@/components/Nav';
 export default {
   data() {
     return {
+      navlist: [{
+        name: '热门游戏',
+      }, {
+        name: 'PT',
+      }, {
+        name: 'MG',
+      }, {
+        name: 'PNG',
+      },{
+        name: 'SW',
+      },{
+        name: 'BS',
+      },{
+        name: 'QT',
+      },{
+        name: 'MW',
+      },{
+        name: 'BBIN',
+      }, ],
       list: [{
           src: '../../static/yx1.png',
           name: '',
@@ -135,7 +144,8 @@ export default {
   components: {
     Swiper2,
     GameList,
-    marquee
+    marquee,
+    Nav
   }
 }
 </script>
@@ -157,29 +167,6 @@ export default {
             }
         }
     }
-    .nav {
-        font-size: 14px;
-        color: #fff;
-        height: 50px;
-        line-height: 50px;
-        border-top: 1px solid #595959;
-        border-bottom: 1px solid #595959;
-        width: 1024px;
-        overflow: hidden;
-        margin: 0 auto 10px;
-        li {
-            float: left;
-            padding: 0 5px;
-        }
-        input {
-            float: right;
-            background: none;
-            border: none;
-            line-height: 50px;
-            color: #949494;
-            width: 66px;
-            background: url("../../static/search.png") no-repeat 37px 14px;
-        }
-    }
+
 }
 </style>

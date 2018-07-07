@@ -6,7 +6,14 @@ import Dealer from '@/page/Dealer'
 import Promotions from '@/page/Promotions'
 import Help from '@/page/Help'
 import Lottery from '@/page/Lottery'
-import PT from '@/page/PT'
+import BBIN from '@/page/game/BBIN'
+import BS from '@/page/game/BS'
+import MG from '@/page/game/MG'
+import MW from '@/page/game/MW'
+import PNG from '@/page/game/PNG'
+import PT from '@/page/game/PT'
+import QT from '@/page/game/QT'
+import SW from '@/page/game/SW'
 import Slotmachine from '@/page/Slotmachine'
 
 export default new Router({
@@ -36,9 +43,41 @@ export default new Router({
       name: 'Lottery',
       component: Lottery
     },{
+      path: '/BBIN',
+      name: 'BBIN',
+      component: BBIN
+    },{
+      path: '/BS',
+      name: 'BS',
+      component: BS
+    },{
       path: '/PT',
       name: 'PT',
       component: PT
+    },{
+      path: '/MG',
+      name: 'MG',
+      component: MG
+    },{
+      path: '/MW',
+      name: 'MW',
+      component: MW
+    },{
+      path: '/PNG',
+      name: 'PNG',
+      component: PNG
+    },{
+      path: '/PT',
+      name: 'PT',
+      component: PT
+    },{
+      path: '/QT',
+      name: 'QT',
+      component: QT
+    },{
+      path: '/SW',
+      name: 'SW',
+      component: SW
     },{
       path: '/Slotmachine',
       name: 'Slotmachine',

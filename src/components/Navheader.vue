@@ -186,7 +186,7 @@ export default {
         width: 28.3%;
         height: 85px;
         a {
-            background: url("/static/img/ys_logocbg_mob0608.2f0d68a.png") no-repeat 0 30px;
+            background: url("/static/logo.png") no-repeat 0 30px;
             display: block;
             height: 100%;
             padding-top: 6px;

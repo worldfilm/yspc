@@ -44,7 +44,7 @@
         <span>确认密码：</span><input type="password" class="form-control" placeholder="请再次输入密码" v-model='confirmPassword'>
         <p class="warn" v-text='tex'></p>
       </div>
-      <button type="button" class="surebtn" @click='btnRegister' :disable='disable'>更&nbsp;&nbsp;改</button>
+      <button type="button" class="surebtn" @click='btnSubmit' :disable='disable'>更&nbsp;&nbsp;改</button>
     </form>
   </div>
 </div>
@@ -54,13 +54,25 @@ import Hub from '@/components/Hub';
 export default {
   data() {
     return {
+      username: null,
+      nickname: null,
+      password: null,
+      confirmPassword: null,
+      verifycode: null,
+      texusername: null,
+      texpassword: null,
       tex: null,
-      list: [{}, ]
+      data: {},
+      chose: true,
+      disable: 'disable',
     }
   },
   methods: {
     left() {
       Hub.$emit('active', false);
+    },
+    btnSubmit(){
+
     },
   },
   components: {},
