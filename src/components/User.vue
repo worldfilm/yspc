@@ -26,7 +26,7 @@
               <Operation/>
             </el-tab-pane>
             <el-tab-pane label="VIP商场">
-              <Operation/>
+              <VipMall/>
             </el-tab-pane>
           </el-tabs>
         </div>
@@ -44,6 +44,7 @@ import Promotion from '@/components/Promotion';
 import Vip from '@/components/Vip';
 import Transfer from '@/components/Transfer';
 import Operation from '@/components/Operation';
+import VipMall from '@/components/VipMall';
 
 export default {
   components: {
@@ -53,6 +54,7 @@ export default {
     Vip,
     Transfer,
     Operation,
+    VipMall,
   },
   data() {
     return {
@@ -65,49 +67,6 @@ export default {
       toggerClass: 0,
       Showleft: '',
       index: 0,
-      // list: [{
-      //     name: '个人中心',
-      //     fun: function() {
-      //       // console.log('personal')
-      //       return 'personal'
-      //     },
-      //   },
-      //   {
-      //     name: '历史',
-      //     fun: function() {
-      //       // console.log('history')
-      //       return 'history'
-      //     },
-      //   },
-      //   {
-      //     name: '优惠大厅',
-      //     fun: function() {
-      //       // console.log('Promotion')
-      //       return 'Promotion'
-      //     },
-      //   },
-      //   {
-      //     name: 'VIP',
-      //     fun: function() {
-      //       // console.log('VIP')
-      //       return 'VIP'
-      //     },
-      //   },
-      //   {
-      //     name: '游戏转账',
-      //     fun: function() {
-      //       // console.log('Transfer')
-      //       return 'Transfer'
-      //     },
-      //   },
-      //   {
-      //     name: '推广赚钱',
-      //     fun: function() {
-      //       // console.log('Operation')
-      //       return 'Operation'
-      //     },
-      //   },
-      // ]
     }
   },
   methods: {
@@ -116,19 +75,6 @@ export default {
     },
     toggle(item, index) {
       item(item)
-      // console.log()
-      // let arr = [this.toggerClass, this.ShowPersonal, this.ShowHistory, this.ShowPromotion, this.ShowVip, this.ShowTransfer, this.ShowOperation]
-      // this.toggerClass = index
-      // this.ShowPersonal=index
-      // this.ShowHistory=index
-      // this.ShowPromotion=index
-      // this.ShowVip=index
-      // this.ShowTransfer=index
-      // this.ShowOperation=index
-      // for(var i=0;i<arr.length;i++){
-      // var index=0
-      // console.log(arr[i])
-      // }
     },
   },
   created() {
@@ -147,7 +93,7 @@ export default {
     height: auto;
     position: absolute;
     top: 0;
-    z-index:10;
+    z-index: 10;
     left: 0;
     background-color: rgba(0,0,0,.6);
     .user-container {
@@ -161,7 +107,7 @@ export default {
                 background: linear-gradient(to right, #4e4a3f, #8f7128, #b98a16);
             }
             .container {
-                width: 820px;
+                width: 830px;
                 margin: 0 auto;
                 color: #a6a6a6;
                 .nav {
