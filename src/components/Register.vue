@@ -8,7 +8,7 @@
       </div>
       <form>
         <div class="form-group">
-          <input type="text" class="form-control"  placeholder="登录名为4-12位字母或数字" v-model='username'>
+          <input type="text" class="form-control" placeholder="登录名为4-12位字母或数字" v-model='username'>
           <p class="warn" v-text='texusername'></p>
         </div>
         <div class="form-group">
@@ -17,6 +17,13 @@
         </div>
         <div class="form-group">
           <input type="password" class="form-control" placeholder="请再次输入密码" v-model='confirmPassword'>
+          <p class="warn" v-text='texconfirmPassword'></p>
+        </div>
+        <div class="form-group">
+          <input type="text" class="VerifyCode" placeholder="请输入验证码" v-model='verifycode' maxlength="4">
+          <a class="input-group-addon vimg" href="Javascript:;" @click='VerifyCode'>
+            <img class="verify-img" src="../../static/VerifyCode.png" alt="点击刷新" width="100" height="26">
+          </a>
           <p class="warn" v-text='tex'></p>
         </div>
         <p class="sure">
@@ -49,6 +56,8 @@ export default {
       verifycode: null,
       texusername: null,
       texpassword: null,
+      texconfirmPassword: null,
+      texverifycode: null,
       tex: null,
       data: {},
       chose: true,
@@ -70,42 +79,52 @@ export default {
       let verifycodeReg = /^[a-zA-Z0-9]{4,12}$/;
       let userReg = /^[a-zA-Z0-9]{4,12}$/;
       let pwdReg = /^[a-zA-Z0-9]{6,12}$/;
-      if (this.username==null||this.username=='') {
+      if (this.username == null || this.username == '') {
         this.texusername = "用户名不得为空!";
-        this.texpassword=null;
-        this.tex=null
-      } else  if (this.password==null||this.password=='') {
-        this.texusername=null;
-        this.tex=null
+        this.texpassword = null;
+        this.tex = null
+      } else if (this.password == null || this.password == '') {
+        this.texusername = null;
+        this.tex = null
         this.texpassword = "密码不得为空!";
-      } else if(this.confirmPassword==null||this.confirmPassword=='') {
-        this.texusername=null;
-        this.texpassword=null;
-        this.tex = "请再次输入密码!";
-      }else{
-        this.tex=null
+      } else if (this.confirmPassword == null || this.confirmPassword == '') {
+        this.texusername = null;
+        this.texpassword = null;
+        this.texconfirmPassword = "请再次输入密码!";
+      } else if (this.verifycode == null || this.verifycode == '') {
+        this.texusername = null;
+        this.texpassword = null;
+        this.texconfirmPassword = null;
+        this.tex = "验证码不得为空!!";
+      } else {
+        this.tex = null
         if (!userReg.test(this.username)) {
           this.texusername = "请检查您输入的用户名~";
-          this.texpassword=null;
-          this.tex=null
+          this.texpassword = null;
+          this.tex = null
         } else if (!pwdReg.test(this.password)) {
           this.texpassword = "请检查您输入的密码~";
-          this.texusername=null;
-          this.tex=null
+          this.texusername = null;
+          this.tex = null
         } else if (this.password != this.confirmPassword) {
-          this.tex = "两次输入的密码不一致~";
-          this.texusername=null;
-          this.texpassword=null;
+          this.texconfirmPassword = "两次输入的密码不一致~";
+          this.texusername = null;
+          this.texpassword = null;
+        } else if (!verifycodeReg.test(this.verifycode)) {
+          this.tex = "请检查您输入的验证码~";
+          this.texusername = null;
+          this.texpassword = null;
+          this.texconfirmPassword = null;
         } else {
-          if(this.chose){
+          if (this.chose) {
             this.tex = "注册成功~";
-            network('Register', {
+            network('http://ysnew.ya3test.com/Index/signup', {
               username: this.username,
-              nickname: this.nickname,
               password: this.password,
-              verifycode: this.verifycode
+              repassword: this.confirmPassword,
+              txtValidateCode: this.verifycode,
             })
-          }else {
+          } else {
             this.tex = "不勾选表示不同意网站协议，不能注册！";
           }
 
@@ -144,7 +163,7 @@ export default {
     }
     .register-pop-content {
         background: linear-gradient(to top, #332f2f, #656161, #887f7f);
-        height: 600px;
+        // height: 600px;
         padding: 20px 25px;
         form {
             padding-top: 130px;
@@ -159,28 +178,43 @@ export default {
                     width: 70px;
                 }
                 .form-control {
-                  height: 42px;
-                  line-height: 42px;
-                  font-size: 16px;
-                  color: #fff;
-                  border: none;
-                  width: 270px;
-                  padding: 0 12px;
-                  margin-bottom: 15px;
-                  background: none;
-                  border-bottom: 1px solid #ada5a5;
+                    height: 42px;
+                    line-height: 42px;
+                    font-size: 16px;
+                    color: #fff;
+                    border: none;
+                    width: 270px;
+                    padding: 0 12px;
+                    margin-bottom: 15px;
+                    background: none;
+                    border-bottom: 1px solid #ada5a5;
                 }
-                input::-webkit-input-placeholder{
-                    color:#cababa;
+                .VerifyCode {
+                    width: 150px;
+                    height: 42px;
+                    line-height: 42px;
+                    font-size: 16px;
+                    color: #fff;
+                    border: none;
+                    padding: 0 12px;
+                    margin-bottom: 15px;
+                    background: none;
+                    border-bottom: 1px solid #ada5a5;
                 }
-                input::-moz-placeholder{   /* Mozilla Firefox 19+ */
-                    color:#cababa;
+                input::-webkit-input-placeholder {
+                    color: #cababa;
                 }
-                input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
-                    color:#cababa;
+                input::-moz-placeholder {
+                    /* Mozilla Firefox 19+ */
+                    color: #cababa;
                 }
-                input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
-                    color:#cababa;
+                input:-moz-placeholder {
+                    /* Mozilla Firefox 4 to 18 */
+                    color: #cababa;
+                }
+                input:-ms-input-placeholder {
+                    /* Internet Explorer 10-11 */
+                    color: #cababa;
                 }
                 .input-group-addon {
                     img {}

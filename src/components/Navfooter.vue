@@ -27,6 +27,9 @@
       <p>Copyright 2011-2017 亚盛国际 All Rights Reserved.</p>
     </div>
   </div>
+  <div class="left">
+
+  </div>
 </div>
 </template>
 <script>
@@ -78,6 +81,11 @@ export default {
         margin: 0 auto;
         padding-top: 30px;
         color: #949494;
+        .left {
+            width: 80px;
+            height: 530px;
+            background: #fff;
+        }
         .nav {
             .nav-ul {
                 text-align: left;
