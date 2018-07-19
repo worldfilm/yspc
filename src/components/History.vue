@@ -1,17 +1,10 @@
 <template>
 <div class="history-conter">
-  <!-- <div @click="left"></div> -->
   <div class="title">
     <p class="title-p">交易记录</p>
     <SelectOption :list='historylist' :tex='historylist[0].name'/>
   </div>
   <div class="historylist">
-    <!-- <el-table :data="list" style="width: 100%">
-      <el-table-column prop="type" label="类型"></el-table-column>
-      <el-table-column prop="money" label="金额"></el-table-column>
-      <el-table-column prop="day" label="日期"></el-table-column>
-      <el-table-column prop="status" label="状态"></el-table-column>
-    </el-table> -->
     <p class='list-item'><span>类型</span><span>金额</span><span>日期</span><span>状态</span></p>
     <ul>
       <li class='list-item' v-for="item in list">
@@ -26,7 +19,6 @@
     <el-pagination :page-size="20" :pager-count="11" layout="prev, pager, next" :total="1000" :current-change='currentPage' @click='foo(currentPage)'>
     </el-pagination>
   </div>
-
 </div>
 </template>
 <script>

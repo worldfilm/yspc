@@ -30,7 +30,7 @@ import SelectOption from '@/components/SelectOption';
 export default {
   data() {
     return {
-      list: [{
+      transferlist: [{
         name: '中心钱包',
         money: '10000.00'
       }, {

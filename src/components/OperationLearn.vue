@@ -37,7 +37,7 @@ import Hub from '@/components/Hub';
 export default {
   data() {
     return {
-      qrsrc:'../../static/qr.png',
+      qrsrc:'/public/yspc/img/qr.png',
       list: [{
         },
       ]

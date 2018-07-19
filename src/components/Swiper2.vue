@@ -19,30 +19,30 @@ import Swiper from 'swiper';
 export default {
   data() {
     return {
-      imgsrc: '../../static/b1.jpg',
+      imgsrc: './static/img/b1.jpg',
       list: [{
-          src: '../../static/b1.jpg'
+          src: './static/b1.jpg'
         }, {
-          src: '../../static/b2.jpg'
+          src: '/static/b2.jpg'
         },
         {
-          src: '../../static/b3.jpg'
+          src: './static/b3.jpg'
         },
         {
-          src: '../../static/b4.jpg'
+          src: './static/b4.jpg'
         },
       ],
       list2: [{
-          src: '../../static/b1s.png'
+          src: './static/b1s.png'
         },
         {
-          src: '../../static/b2s.png'
+          src: './static/b2s.png'
         },
         {
-          src: '../../static/b3s.png'
+          src: './static/b3s.png'
         },
         {
-          src: '../../static/b4s.png'
+          src: './static/b4s.png'
         },
       ],
     }

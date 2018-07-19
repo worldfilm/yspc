@@ -24,7 +24,7 @@ import Hub from '@/components/Hub';
 export default {
   data() {
     return {
-      list: [{
+      vipmall: [{
         price: '80',
         warrior: '80',
         Elite: '80',
@@ -34,7 +34,7 @@ export default {
         legend: '80',
         myth: '80',
         src: '../../static/8.png',
-        name: '8',
+        name: '8'
       }, {
         price: '200',
         warrior: '200',
@@ -45,7 +45,7 @@ export default {
         legend: '184',
         myth: '180',
         src: '../../static/20.png',
-        name: '20',
+        name: '20'
       }, {
         price: '1000',
         warrior: '1000',
@@ -56,7 +56,7 @@ export default {
         legend: '920',
         myth: '900',
         src: '../../static/100.png',
-        name: '100',
+        name: '100'
       }, {
         price: '5000',
         warrior: '5000',
@@ -67,7 +67,7 @@ export default {
         legend: '4600',
         myth: '4500',
         src: '../../static/500.png',
-        name: '500',
+        name: '500'
       }, {
         price: '10000',
         warrior: '10000',
@@ -78,7 +78,7 @@ export default {
         legend: '9200',
         myth: '9000',
         src: '../../static/1000.png',
-        name: '1000',
+        name: '1000'
       }, {
         price: '50000',
         warrior: '50000',
@@ -89,7 +89,7 @@ export default {
         legend: '46000',
         myth: '45000',
         src: '../../static/5000.png',
-        name: '5000',
+        name: '5000'
       }, {
         price: '100000',
         warrior: '100000',
@@ -100,7 +100,7 @@ export default {
         legend: '92000',
         myth: '90000',
         src: '../../static/10000.png',
-        name: '10000',
+        name: '10000'
       }, {
         price: '98000',
         warrior: '98000',
@@ -111,7 +111,7 @@ export default {
         legend: '90160',
         myth: '88200',
         src: '../../static/x.png',
-        name: 'Iphone X',
+        name: 'Iphone X'
       }, {
         price: '76000',
         warrior: '76000',
@@ -122,7 +122,7 @@ export default {
         legend: '69920',
         myth: '68400',
         src: '../../static/s9.png',
-        name: '三星S9+',
+        name: '三星S9+'
       }, {
         price: '50000',
         warrior: '50000',
@@ -133,7 +133,7 @@ export default {
         legend: '46000',
         myth: '45000',
         src: '../../static/mate10.png',
-        name: '华为M10 Pro',
+        name: '华为M10 Pro'
       }, {
         price: '350000',
         warrior: '350000',
@@ -155,7 +155,7 @@ export default {
         legend: '165600',
         myth: '162000',
         src: '../../static/thinkpad.png',
-        name: 'thinkpad X1',
+        name: 'thinkpad X1'
       }, {
         price: '1980000',
         warrior: '1980000',
@@ -166,7 +166,7 @@ export default {
         legend: '1821600',
         myth: '178200',
         src: '../../static/gold.png',
-        name: '黄金按摩椅',
+        name: '黄金按摩椅'
       }, {
         price: '1900000',
         warrior: '1900000',
@@ -177,10 +177,8 @@ export default {
         legend: '1748000',
         myth: '1710000',
         src: '../../static/tral.png',
-        name: '海岛旅游私人定制',
+        name: '海岛旅游私人定制'
       }, ]
-
-
     }
   },
   methods: {

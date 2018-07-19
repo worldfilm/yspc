@@ -13,7 +13,7 @@ import Hub from '@/components/Hub';
 export default {
   data() {
     return {
-      qrsrc: '../../static/qr.png',
+      qrsrc: '/public/yspc/img/qr.png',
       list: [{
         username: 'xxxx',
         day: '2018/05/22',
@@ -69,7 +69,7 @@ export default {
 <style lang="scss" scoped>
 .OperationDetail-content {
     width: 830px;
-    background: url("../../static/tg.png")repeat-Y;
+    background: url("/public/yspc/img/tg.png")repeat-Y;
     padding-top: 47px;
     background-size: 100%;
     text-align: center;
